@@ -46,6 +46,7 @@ services:
       - "8444:8444"
       - "8001:8001"
       - "8002:8002"
+      - "8100:8100"
     environment:
       KONG_PROXY_LISTEN: 0.0.0.0:8000, 0.0.0.0:8443 # Proxy SSL
       KONG_ADMIN_LISTEN: 0.0.0.0:8001, 0.0.0.0:8444 # Admin SSL
@@ -56,6 +57,7 @@ services:
       KONG_PG_DATABASE: kong
       KONG_PG_USER: kong
       KONG_PG_PASSWORD: kong
+      KONG_STATUS_LISTEN: "0.0.0.0:8100"
     volumes:
       - ./kong.yml:/usr/local/kong/declarative/kong.yml:z
 
